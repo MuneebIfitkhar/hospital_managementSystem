@@ -1,0 +1,43 @@
+﻿  MainMenu.cpp
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(84,1): warning C4305: 'argument': truncation from 'int' to 'const _Elem'
+          with
+          [
+              _Elem=char
+          ]
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(84,20): warning C4309: 'argument': truncation of constant value
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(85,1): warning C4305: 'argument': truncation from 'int' to 'const _Elem'
+          with
+          [
+              _Elem=char
+          ]
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(85,22): warning C4309: 'argument': truncation of constant value
+  PatientInfoUI.cpp
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(84,1): warning C4305: 'argument': truncation from 'int' to 'const _Elem'
+          with
+          [
+              _Elem=char
+          ]
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(84,20): warning C4309: 'argument': truncation of constant value
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(85,1): warning C4305: 'argument': truncation from 'int' to 'const _Elem'
+          with
+          [
+              _Elem=char
+          ]
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(85,22): warning C4309: 'argument': truncation of constant value
+  hospitalManagentSystem.cpp
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(84,1): warning C4305: 'argument': truncation from 'int' to 'const _Elem'
+          with
+          [
+              _Elem=char
+          ]
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(84,20): warning C4309: 'argument': truncation of constant value
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(85,1): warning C4305: 'argument': truncation from 'int' to 'const _Elem'
+          with
+          [
+              _Elem=char
+          ]
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientInfoUI.h(85,22): warning C4309: 'argument': truncation of constant value
+  Generating Code...
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientRepostry.h(45): warning C4715: 'PatientRepostry::searchPatientHistory': not all control paths return a value
+C:\c++ projects\hospitalManagentSystem\hospitalManagentSystem\PatientRepostry.h(37): warning C4715: 'PatientRepostry::searchPatient': not all control paths return a value
+  hospitalManagentSystem.vcxproj -> C:\c++ projects\hospitalManagentSystem\x64\Debug\hospitalManagentSystem.exe
