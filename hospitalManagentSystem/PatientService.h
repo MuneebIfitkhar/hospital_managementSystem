@@ -13,32 +13,81 @@ class PatientService
 public:
 
 
-	void addPatient(string age, string gender, string patientId, string name, string fName, string address, string phoneNumber ,PatientHistory patientHistory ) {
+	void addPatient(string age, string gender, string patientId,
+		string name, string fName, string address,
+		string phoneNumber ,
+		PatientHistory patientHistory, LabReports reports) 
+	{
  
-		PatientInfo patientInfo(age,gender,patientId,name,fName,address,phoneNumber, patientHistory);
+		PatientInfo patientInfo(age,gender,patientId,name,
+			fName,address,phoneNumber, patientHistory , reports);
 
 		patientRepostry.save(patientInfo);
+
 	}
-	PatientHistory createPatientHistoryObj(string familyDisease, string famDiesMedicine, string majorDiseases [], string medications [], string allergicMedicines[]) {
-		PatientHistory patientHistory(familyDisease, famDiesMedicine, majorDiseases, medications, allergicMedicines);
+
+	PatientHistory createPatientHistoryObj(string familyDisease, string childhoodDisease[],
+		string chdMedies [],string allergicMedicines[])
+	{
+		PatientHistory patientHistory(familyDisease, childhoodDisease,
+			chdMedies,allergicMedicines);
+
 		return patientHistory;
+	}
+
+	LabReports createLabReports(string oldTest, string newTest, string results) {
+		LabReports labreports(oldTest, newTest, results);
+		return labreports;
 	}
 	
 	PatientInfo findPatient(string id) {
 		return patientRepostry.searchPatient(id);
 	}
-	PatientHistory* findPatientHistory(string id) {
-		return patientRepostry.searchPatientHistory(id);
-	}
-	void deletePatient(string cnic) {
-		patientRepostry.distroy(cnic);
-	}
-	/*void updatePatient(string age, string cnic ,string gender, string patientId, string name, string fName, string address, string phoneNumber) {
-		
-		PatientInfo patientObject(age, gender, patientId, name, fName, address, phoneNumber);
-		patientRepostry.update(cnic, patientObject);
-	}*/
+	
+	
 
+	PatientInfo * findPatientReference(string id) {
+		return patientRepostry.searchPatientReference(id);
+	}
+
+	PatientHistory* findPatientHistoryRefrence(string cnic) {
+		return patientRepostry.searchPatientHistoryRefrence(cnic);
+	}
+	LabReports* findLabReports(string cnic) {
+		return patientRepostry.searchLabReports(cnic);
+	}
+	void deletePatient(PatientInfo * patientInfo) {
+		patientRepostry.distroyPatientInfo(patientInfo);
+	}
+
+	void deletePatientHistory(PatientHistory *patientHistory) {
+		patientRepostry.distroyHistory(patientHistory);
+	}
+
+	void deletePatientLabReports(LabReports * labReports) {
+		patientRepostry.distroyLabreports(labReports);
+	}
+
+	void updatePatient(string age,string patientId , string gender, string name, string fName,
+		string address, string phoneNumber,PatientInfo * patientInfo) 
+	{
+		//PatientInfo* info = &patientInfo;
+		patientRepostry.updatePatientInfo(age, patientId ,gender, name, fName,
+			address, phoneNumber, patientInfo);
+
+	}
+
+
+	void updatePatientHistory(string familyDisease, string childhoodDisease[],
+		string chdMedies[], string allergicMedicines[], PatientHistory * patientHistory) {
+
+		patientRepostry.updatePatientHistory(familyDisease, childhoodDisease, chdMedies, allergicMedicines, patientHistory);
+
+	}
+
+	void updateLAbReports(string previousTest,string newTest , string results,LabReports* reports) {
+		patientRepostry.updateLabReports(previousTest, newTest, results, reports);
+	}
 	
 };
 

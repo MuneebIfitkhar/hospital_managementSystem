@@ -2,13 +2,15 @@
 #include<iostream>
 #include<string.h>
 #include"PatientHistory.h"
+#include"LabReports.h"
 using namespace std;
 
 class PatientInfo
 {
 private:
-	string  name, fName, homeAddress, phoneNumber, id,age ,gender;
-	PatientHistory * patientHistory;
+	string  name, fName, homeAddress, phoneNumber, id,age ,patientGender;
+	PatientHistory  patientHistory;
+	LabReports labReports;
 
 public:
 
@@ -17,31 +19,53 @@ public:
 		id = "404";
 	}
 
-	PatientInfo(string patientAge, string patientGender, string patientId, string patientName, string fathernName,
-		string address, string contact ,PatientHistory phistory) {
-		 this->patientHistory =  & phistory;
-		this->id = patientId;
-		this->name = patientName;
-		this->fName = fathernName;
-		this->homeAddress = address;
-		this->phoneNumber = contact;
-		this->age = patientAge;
-		this->gender = patientGender;
-	}
-
-	void setVals(string patientAge, string patientGender, string patientId, string patientName, string fathernName, string address, string contact) {
-
+	PatientInfo(string patientAge, string gender, string patientId, string patientName, string fathernName,
+		string address, string contact ,PatientHistory phistory , LabReports reports) {
+		
+		labReports = reports;
+		patientHistory =  phistory;
 		id = patientId;
 		name = patientName;
-		fName = fathernName;
-		homeAddress = address;
+	    fName = fathernName;
+	    homeAddress = address;
 		phoneNumber = contact;
 		age = patientAge;
-		gender = patientGender;
-
+		patientGender = gender;
 	}
+
+	
+	//set methods
+	void setId(string cnic) {
+		id = cnic;
+	}
+	void setAge(string patientAge){
+		age = patientAge;
+	}
+	void setName(string patientName) {
+		name = patientName;
+	}
+	void setfName(string fatherName) {
+		fName = fatherName;
+	}
+	void setAddress(string address){
+		homeAddress = address;
+	}
+	void setPhoneNumbr (string contact){
+		phoneNumber = contact;
+	}
+	void setGender(string gender) {
+		patientGender = gender;
+	}
+
+
+	//get methods
+	
+
 	PatientHistory* getHistory() {
-		return this->patientHistory;
+		return &patientHistory;
+	}
+	LabReports* getLabReports() {
+		return &labReports;
 	}
 
 	string getId() {
@@ -63,7 +87,7 @@ public:
 		return age;
 	}
 	string getGender() {
-		return gender;
+		return patientGender;
 	}
 		
 

@@ -11,7 +11,7 @@ private:
 public:
 
 	PatientRepostry(){
-		cout << "Repository" << endl;
+		
 	}
 
 	void save(PatientInfo obj) {
@@ -25,7 +25,22 @@ public:
 			
 		}
 	}
+
+	PatientInfo * searchPatientReference(string cnic) {
+		PatientInfo* emptyObj = new PatientInfo();
+		for (int i = 0; i < 100; i++)
+		{
+			if (patientInfo[i].getId() == cnic)
+			{
+				return &patientInfo[i];
+				
+			} 
+		}
+		return  emptyObj;
+	}
+
 	PatientInfo searchPatient(string cnic) {
+		PatientInfo emptyObj;
 		for (int i = 0; i < 100; i++)
 		{
 			if (patientInfo[i].getId() == cnic)
@@ -34,45 +49,150 @@ public:
 				break;
 			}
 		}
+		return  emptyObj;
 	}
-	PatientHistory * searchPatientHistory(string id) {
+
+	
+	PatientHistory * searchPatientHistoryRefrence(string cnic) {
+		
+		PatientHistory* emptyobject = new PatientHistory();
+	
+		
 		for (int i = 0; i < 100; i++) {
-			if (patientInfo[i].getId() == id)
+			if (patientInfo[i].getId() ==cnic)
 			{
 				return patientInfo[i].getHistory();
 			}
 		}
+		return emptyobject;
 	}
 
-	void update(string cnic , PatientInfo obj){
-		PatientInfo patientobj =  searchPatient(cnic);
+	LabReports* searchLabReports(string cnic) {
+		LabReports emptyObject;
 		for (int i = 0; i < 100; i++)
 		{
-			if (patientInfo[i].getId() == patientobj.getId()) {
-				patientInfo[i] = obj;
+			if (patientInfo[i].getId() == cnic) {
+				return patientInfo[i].getLabReports();
+			}
+		}
+		return &emptyObject;
+	}
+	
+	void updatePatientInfo(string age, string patientId, 
+		string gender, string name, string fName,
+		string address,
+		string phoneNumber,
+		PatientInfo * patientInfo){
+		
+
+				if (patientId != "") {
+					 patientInfo->setId(patientId);
+				}
+				if (name != "") {
+					patientInfo->setName(name);
+				}
+				if(fName != "") {
+					patientInfo->setfName(fName);
+				}
+				if (age != "") {
+					patientInfo->setAge(age);
+				}
+				if (gender != "") {
+					patientInfo->setGender(gender);
+				}
+				if (phoneNumber != "") {
+					patientInfo->setPhoneNumbr(phoneNumber);
+				}
+				
+	}
+	
+	void updatePatientHistory(
+		string familyDisease, 
+		string chldHoodDiseas[],
+		string chldHoodMedications[],
+		string allergicMedicines[],
+		PatientHistory * patientHistory)
+	{
+		
+		
+		if (familyDisease!="")
+		{
+			patientHistory->setFamDiseas(familyDisease);
+		}
+		for (int i = 0; i <10 ; i++)
+		{
+			if (allergicMedicines[i] != "") {
+				patientHistory->setAllergicMedicines(allergicMedicines);
+			}
+			if (chldHoodDiseas[i]!="")
+			{
+				patientHistory->setChildhoodDisease(chldHoodDiseas);
+			}
+			if (chldHoodMedications[i]!= "")
+			{
+				patientHistory->setChildHoodMedicine(chldHoodMedications);
+			}
+		}
+		
+
+	}
+
+	void updateLabReports(string oldTest, string newTest, string results,LabReports * reports) {
+		
+		if (oldTest != "") {
+			reports->setPreviousTest(oldTest);
+		}
+		if (newTest != "") {
+			reports->setfurtherTest(newTest);
+		}
+		if (results != "") {
+			reports->setLabReults(results);
+		}
+
+	}
+
+	void distroyPatientInfo(PatientInfo* info) {
+	
+		
+		for (int i = 0; i < 100; i++)
+		{
+			if (patientInfo[i].getId() == info->getId()) {
+				
+				patientInfo[i].setId("404");
+				patientInfo[i].setName("404");
+				patientInfo[i].setfName("404");
+				patientInfo[i].setAge("404");
+				patientInfo[i].setPhoneNumbr("404");
+				patientInfo[i].setGender("404");
+				patientInfo[i].setAddress("404");
+				PatientHistory *history = patientInfo[i].getHistory();
+				LabReports* reports = patientInfo[i].getLabReports();
+				distroyHistory(history);
+				distroyLabreports(reports);
 				break;
 			}
 		}
+
 	}
 
-	void distroy(string cnic) {
-		string Age = "404";
-		string gender = "404";
-		string Id = "404";
-		string name = "404";
-		string fName = "404";
-		string address = "404";
-		string contact = "404";
-		PatientInfo patientInfoObject = searchPatient(cnic);
-		for (int i = 0; i < 100; i++)
-		{
-			if (patientInfo[i].getId() == patientInfoObject.getId()) {
-
-				patientInfo[i].setVals(Age, gender, Id, name, fName, address, contact);
-				break;
-			}
+	void distroyHistory(PatientHistory *patientHistory){
+		string chldHdDiseas[10], chldHdMed[10], alrgMed[10];
+		for (int i = 0; i < 10; i++) {
+			chldHdDiseas[i] = "404";
+			chldHdMed[i] = "404";
+			alrgMed[i] = "404";
 		}
+		patientHistory->setFamDiseas("404");
+		patientHistory->setChildhoodDisease(chldHdDiseas);
+		patientHistory->setAllergicMedicines(alrgMed);
+		patientHistory->setChildHoodMedicine(chldHdMed);
 
+	}
+
+	void distroyLabreports(LabReports* reports) {
+		reports->setfurtherTest("404");
+		reports->setLabReults("404");
+		reports->setPreviousTest("404");
 	}
 };
 

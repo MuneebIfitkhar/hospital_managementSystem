@@ -7,9 +7,8 @@ class PatientHistory
 {
 private:
 	string familyDisease;
-	string famDieseasMedicine;
-	string  childHoodDiseases[10];
-	string  medications[10];
+	string childHoodDisease[10];
+	string  childHoodMedicines[10];
 	string  allergicMedicines[10];
 public:
 	
@@ -17,44 +16,61 @@ public:
 	PatientHistory() {
 
 		familyDisease = "404";
-		famDieseasMedicine = "404";
+		
 		for (int i = 0; i < 10; i++) {
 		
-			childHoodDiseases[i] = "404";
-			medications[i] = "404";
+			childHoodDisease[i] = "404";
+			childHoodMedicines[i] = "404";
 			allergicMedicines[i] = "404";
 		}
 	}
 		
 	
-	PatientHistory(string famDisease ,string fdMedicine, string  chDisease[], string medicine[] , string alrgMedicine[]) {
+	PatientHistory(string famDisease , string  chDisease[],string chdMedies[] ,string alrgMedicine[]) {
 		familyDisease = famDisease;
-		famDieseasMedicine = fdMedicine;
+		
 		for (int i = 0; i < 10; i++) {
-			if (childHoodDiseases[i] == "404" || medications[i]=="404" || allergicMedicines[i]=="404") {
 
-				childHoodDiseases[i] = chDisease[i];
-				medications[i] = medicine[i];
-				allergicMedicines[i] = alrgMedicine[i];
-			}
-			
+			childHoodDisease[i] = chDisease[i];
+			childHoodMedicines[i] = chdMedies[i];
+			allergicMedicines[i] = alrgMedicine[i];
 		}
 	}
 
-	
+	//setter methods 
 
+	void setFamDiseas(string famDisease) {
+		familyDisease = famDisease;
+	}
+	void setChildHoodMedicine(string chDisease[]) {
+		for (int i = 0; i < 10; i++) {
+			childHoodMedicines[i] = chDisease[i];
+		}
+		
+	}
+	void setChildhoodDisease(string childHD[]) {
+		for (int i = 0; i < 10; i++) {
+			childHoodDisease[i] = childHD[i];
+		}
+	}
+	
+		void setAllergicMedicines(string alergic[]) {
+			for (int i = 0; i < 10; i++)
+			{
+				allergicMedicines[i] = alergic[i];
+			}
+		}
+	
+		//Getter Methods 
 	string getFamDisease() {
 		return familyDisease;
 	}
-	string getFammDiesMedicine() {
-
-		return famDieseasMedicine;
-	}
+	
 	string* getChildHoodDisease() {
-		return childHoodDiseases;
+		return childHoodDisease;
 	}
-	string* getMedies() {
-		return medications;
+	string* getChildHoodMedies() {
+		return childHoodMedicines;
 	}
 	string* getAlrgicMedies() {
 		return allergicMedicines;

@@ -139,7 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AppointmentRepo.cpp" />
+    <ClCompile Include="Appointments.cpp" />
+    <ClCompile Include="AppointmentService.cpp" />
+    <ClCompile Include="AppointmentUI.cpp" />
+    <ClCompile Include="DoctorInfo.cpp" />
+    <ClCompile Include="DoctorInfoUI.cpp" />
+    <ClCompile Include="DoctorRepostry.cpp" />
+    <ClCompile Include="DoctorService.cpp" />
     <ClCompile Include="hospitalManagentSystem.cpp" />
+    <ClCompile Include="LabReports.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PatientHistory.cpp" />
     <ClCompile Include="PatientInfo.cpp" />
@@ -149,6 +158,15 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppointmentRepo.h" />
+    <ClInclude Include="Appointments.h" />
+    <ClInclude Include="AppointmentService.h" />
+    <ClInclude Include="AppointmentUI.h" />
+    <ClInclude Include="DoctorInfo.h" />
+    <ClInclude Include="DoctorInfoUI.h" />
+    <ClInclude Include="DoctorRepostry.h" />
+    <ClInclude Include="DoctorService.h" />
+    <ClInclude Include="LabReports.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PatientHistory.h" />
     <ClInclude Include="PatientInfo.h" />
@@ -156,7 +174,6 @@
     <ClInclude Include="PatientRepostry.h" />
     <ClInclude Include="PatientService.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="hospitalManagentSystem.rc" />
